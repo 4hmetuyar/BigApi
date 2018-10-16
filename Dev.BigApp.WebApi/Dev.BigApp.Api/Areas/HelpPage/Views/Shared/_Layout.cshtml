@@ -1,12 +1,115 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism-okaidia.min.css" />
+    <style>
+
+        blockquote {
+            border-left: solid 4px #eee;
+            padding-left: 8px;
+            font-style: italic;
+            margin-left: 0;
+            padding: 8px;
+        }
+
+        .ui.micro.label {
+            font-size: .25rem;
+        }
+
+        .ui.transaction.accordion .title {
+            text-align: center;
+        }
+
+        .ui.transaction.accordion .content {
+            border-top: solid 1px #ddd !important;
+            border-bottom: solid 1px #ddd !important;
+            background-color: rgba(0,0,0,.03);
+            padding: 0.5em 1em !important;
+        }
+
+            .ui.transaction.accordion .content.active {
+                margin-top: 0.5em;
+            }
+
+        .ui.basic.label {
+            text-align: left;
+            overflow: auto;
+        }
+
+            .ui.basic.label.request-url {
+                user-select: text;
+            }
+
+        .resource .ui.sub.header {
+            text-transform: none;
+        }
+
+
+
+        .sidenav {
+            left: 0;
+            top: 0;
+            width: inherit;
+            position: fixed !important;
+            height: 100% !important;
+            overflow-y: auto !important;
+            padding-left: 0.5rem;
+        }
+        }
+    </style>
     <title>@ViewBag.Title</title>
     @RenderSection("scripts", required: false)
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     @RenderBody()
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/accordion.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/tab.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/transition.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/popup.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/prism.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/components/prism-json.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.ui.accordion').accordion({ animateChildren: false, duration: 0 });
+            $('.content.tabbed').each(function (index) {
+                $('.ui.tabular .item', $(this)).tab({ context: $(this) });
+            });
+            $('.ui.vertical.menu').on('click', '.item', function () {
+                $('.ui.vertical.menu .item').removeClass('active');
+                $(this).addClass('active');
+            });
+            $('.ui.empty.circular.label').popup();
+        });
+    </script>
 </body>
 </html>
