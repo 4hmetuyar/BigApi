@@ -11,6 +11,7 @@ namespace Dev.BigApp.Api.Controllers
         /// <returns></returns>
         public IEnumerable<string> Get()
         {
+            //TODO: Db bağlanacak.
             return new string[] { "value1", "value2" };
         }
 
